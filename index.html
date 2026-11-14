@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digital Skills with Radha - practical digital skills training in video editing, graphic design, Meta Ads, freelancing, affiliate marketing, digital marketing and web development.">
+  <title>Digital Skills with Radha</title>
+  <style>
+    :root {
+      --pink: #e85d9e;
+      --pink-dark: #c83d80;
+      --pink-light: #fff0f7;
+      --ink: #302333;
+      --muted: #746875;
+      --white: #fff;
+      --line: #f1dce8;
+      --shadow: 0 12px 35px rgba(130, 53, 94, .10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: #fffafd; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    .topbar { background: var(--pink-light); color: var(--pink-dark); text-align: center; padding: 8px 12px; font-size: .9rem; }
+    header { background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { font-weight: 800; font-size: 1.18rem; color: var(--pink-dark); }
+    .brand span { display: block; color: var(--muted); font-size: .72rem; font-weight: 500; letter-spacing: .08em; }
+    nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    nav a { font-size: .92rem; font-weight: 600; }
+    nav a:hover { color: var(--pink-dark); }
+    .btn { border: 0; display: inline-flex; justify-content: center; align-items: center; gap: 8px; padding: 12px 19px; border-radius: 999px; background: var(--pink); color: white; font-weight: 700; cursor: pointer; transition: .2s; }
+    .btn:hover { background: var(--pink-dark); transform: translateY(-1px); }
+    .btn-outline { background: white; color: var(--pink-dark); border: 1px solid var(--pink); }
+    .btn-outline:hover { color: white; }
+    .hero { padding: 86px 0 78px; background: radial-gradient(circle at 85% 15%, #ffe0ef 0, transparent 32%), linear-gradient(135deg,#fff7fb,#fff 65%); }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 42px; }
+    .eyebrow { color: var(--pink-dark); text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-size: .78rem; }
+    h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.08; margin: 15px 0 18px; letter-spacing: -.04em; }
+    h1 em { color: var(--pink); font-style: normal; }
+    .hero p { color: var(--muted); max-width: 620px; font-size: 1.08rem; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .hero-art { background: white; border: 1px solid var(--line); border-radius: 30px; padding: 28px; box-shadow: var(--shadow); }
+    .art-circle { width: 100%; aspect-ratio: 1.08; border-radius: 24px; background: linear-gradient(145deg,#ffd9eb,#fff1f7 55%,#f7d5e8); display: grid; place-items: center; text-align: center; color: var(--pink-dark); padding: 20px; }
+    .art-circle strong { display: block; font-size: 2rem; line-height: 1.2; }
+    .art-circle span { font-size: 3.5rem; display: block; margin-bottom: 12px; }
+    section { padding: 76px 0; }
+    .section-head { text-align: center; max-width: 700px; margin: 0 auto 38px; }
+    .section-head h2 { font-size: clamp(1.8rem,3vw,2.6rem); margin: 8px 0 10px; }
+    .section-head p { color: var(--muted); }
+    .course-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .course { background: white; padding: 24px; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+    .course-icon { width: 48px; height: 48px; display: grid; place-items: center; background: var(--pink-light); border-radius: 14px; font-size: 1.5rem; margin-bottom: 15px; }
+    .course h3 { margin-bottom: 8px; }
+    .course p { color: var(--muted); font-size: .94rem; min-height: 72px; }
+    .course button { margin-top: 16px; }
+    .soft { background: var(--pink-light); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: center; }
+    .about-panel { background: white; padding: 30px; border: 1px solid var(--line); border-radius: 22px; }
+    .about-panel p { color: var(--muted); margin-top: 10px; }
+    .tick-list { list-style: none; margin-top: 16px; }
+    .tick-list li { margin: 9px 0; }
+    .tick-list li::before { content: "✓"; color: var(--pink-dark); font-weight: 800; margin-right: 10px; }
+    .form-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 28px; align-items: start; }
+    .contact-card, .form-card, .admin-card { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 28px; box-shadow: var(--shadow); }
+    .contact-card p { color: var(--muted); margin: 10px 0 18px; }
+    .field { margin-bottom: 14px; }
+    label { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; border: 1px solid #e7d5df; border-radius: 11px; padding: 12px 13px; background: #fff; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--pink); box-shadow: 0 0 0 3px #e85d9e1c; }
+    textarea { min-height: 100px; resize: vertical; }
+    .form-note { color: var(--muted); font-size: .82rem; margin-top: 10px; }
+    .admin-area { display: none; }
+    .admin-tools { display: flex; gap: 10px; flex-wrap: wrap; margin: 15px 0; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; }
+    th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--line); font-size: .9rem; }
+    th { background: var(--pink-light); }
+    .small-btn { border: 1px solid var(--line); background: white; color: var(--pink-dark); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+    .payment-box { text-align: center; max-width: 720px; margin: auto; background: white; border: 1px solid var(--line); border-radius: 22px; padding: 32px; box-shadow: var(--shadow); }
+    .payment-box p { color: var(--muted); margin: 10px 0 18px; }
+    footer { background: #3b2635; color: white; padding: 30px 0; text-align: center; }
+    footer p { color: #f4dce9; font-size: .9rem; }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 30; border-radius: 999px; padding: 13px 18px; background: #20b86a; color: white; font-weight: 800; box-shadow: 0 8px 24px #0002; }
+    .hidden { display: none !important; }
+    @media(max-width:850px) {
+      .hero-grid, .about-grid, .form-wrap { grid-template-columns: 1fr; }
+      .course-grid { grid-template-columns: repeat(2,1fr); }
+      .hero { padding: 60px 0; }
+    }
+    @media(max-width:560px) {
+      .nav { padding: 15px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px; }
+      .course-grid { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .hero-art { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Learn practical digital skills • Build confidence • Explore opportunities</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">Digital Skills with Radha<span>LEARN • CREATE • GROW</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#courses">Courses</a><a href="#about">About</a>
+        <a href="#register">Register</a><a href="#payment">Payment</a><a href="#admin">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Your digital learning journey starts here</div>
+          <h1>Learn skills.<br><em>Create your future.</em></h1>
+          <p>Explore practical training in video editing, graphic design, Meta Ads, freelancing, affiliate marketing, digital marketing and web development.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#courses">Explore Courses</a>
+            <a class="btn btn-outline" href="#register">Register Now</a>
+          </div>
+        </div>
+        <div class="hero-art"><div class="art-circle"><div><span>✿</span><strong>Digital Skills<br>with Radha</strong><p>Learn something valuable every day.</p></div></div></div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">What you can learn</div><h2>Explore Our Courses</h2><p>Choose a skill that matches your interests and goals. Course duration and fees can be added after you decide them.</p></div>
+        <div class="course-grid" id="courseGrid"></div>
+      </div>
+    </section>
+
+    <section class="soft" id="about">
+      <div class="container about-grid">
+        <div><div class="eyebrow">About the platform</div><h2 style="font-size:2.4rem;margin:10px 0">Learn by building practical skills</h2><p style="color:var(--muted)">Digital Skills with Radha is designed to introduce learners to useful digital skills and help them understand how those skills can be applied in projects, careers and online business.</p></div>
+        <div class="about-panel"><h3>What you can expect</h3><ul class="tick-list"><li>Beginner-friendly learning topics</li><li>Practical tools and project ideas</li><li>Guidance on building a portfolio</li><li>Information about freelance and business pathways</li></ul></div>
+      </div>
+    </section>
+
+    <section id="register">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Take the first step</div><h2>Student Registration</h2><p>Submit your details. This starter version will open WhatsApp with your registration message.</p></div>
+        <div class="form-wrap">
+          <div class="contact-card"><div class="course-icon">💬</div><h3>Have a question?</h3><p>Contact us on WhatsApp or email for course information and registration guidance.</p><p><strong>WhatsApp:</strong> +91 89285 29591</p><p><strong>Email:</strong> radhabhosale62@gmail.com</p><a class="btn" href="https://wa.me/918928529591" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+          <form class="form-card" id="studentForm">
+            <div class="field"><label for="studentName">Full name *</label><input id="studentName" name="name" required placeholder="Enter your full name"></div>
+            <div class="field"><label for="studentPhone">Phone number *</label><input id="studentPhone" name="phone" required type="tel" placeholder="Enter your phone number"></div>
+            <div class="field"><label for="studentEmail">Email address</label><input id="studentEmail" name="email" type="email" placeholder="Enter your email"></div>
+            <div class="field"><label for="studentCourse">Course of interest *</label><select id="studentCourse" name="course" required><option value="">Select a course</option></select></div>
+            <div class="field"><label for="studentMessage">Your message</label><textarea id="studentMessage" name="message" placeholder="Tell us what you want to learn"></textarea></div>
+            <button class="btn" type="submit">Send Registration on WhatsApp</button>
+            <p class="form-note">Demo note: this form does not yet save information to a secure online database. It prepares a WhatsApp message for you to send.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="payment">
+      <div class="container">
+        <div class="payment-box"><div class="course-icon" style="margin:0 auto 14px">💳</div><div class="eyebrow">Secure course payments</div><h2>Online Payment</h2><p>Connect a payment provider such as Razorpay after your business account and course pricing are ready. Never collect card or UPI PIN details directly on this website.</p><button class="btn" id="paymentButton" type="button">Payment setup coming soon</button><p class="form-note" id="paymentMessage">The payment button is intentionally inactive until a verified payment link is added.</p></div>
+      </div>
+    </section>
+
+    <section id="admin">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Website management</div><h2>Admin Dashboard</h2><p>Demo dashboard for viewing registrations made in this browser only.</p></div>
+        <div class="admin-card">
+          <div id="adminLogin">
+            <div class="field"><label for="adminPassword">Demo admin password</label><input id="adminPassword" type="password" placeholder="Enter demo password"></div>
+            <button class="btn" id="loginButton" type="button">Open Dashboard</button>
+            <p class="form-note">Demo password: Radha@123. Change this before testing with anyone. This browser-only password is NOT secure for a live website.</p>
+            <p id="loginError" style="color:#b42318;margin-top:8px" role="alert"></p>
+          </div>
+          <div class="admin-area" id="adminArea">
+            <h3>Student enquiries</h3>
+            <div class="admin-tools"><button class="btn btn-outline" id="exportButton" type="button">Export CSV</button><button class="small-btn" id="clearButton" type="button">Clear demo records</button><button class="small-btn" id="logoutButton" type="button">Log out</button></div>
+            <div class="table-wrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Course</th><th>Date</th></tr></thead><tbody id="registrationRows"><tr><td colspan="5">No registrations stored in this browser yet.</td></tr></tbody></table></div>
+            <p class="form-note">Only records saved on this same browser/device appear here. For a real admin dashboard, connect a backend database and secure authentication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><strong>Digital Skills with Radha</strong><p>© <span id="year"></span> Digital Skills with Radha. All rights reserved.</p><p>Contact: radhabhosale62@gmail.com</p></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/918928529591" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">WhatsApp ↗</a>
+
+  <script>
+    // EDIT COURSE NAMES AND DESCRIPTIONS HERE
+    const courses = [
+      { icon: "🎬", name: "Video Editing", desc: "Learn to edit videos, Reels, Shorts and YouTube content." },
+      { icon: "🎨", name: "Graphic Design", desc: "Explore layouts, posters, social media creatives and branding." },
+      { icon: "📣", name: "Meta Ads", desc: "Understand Facebook and Instagram advertising campaigns." },
+      { icon: "💻", name: "Freelancing", desc: "Learn how to present your skills and work with clients." },
+      { icon: "🔗", name: "Affiliate Marketing", desc: "Understand affiliate links, promotion and commission models." },
+      { icon: "📱", name: "Digital Marketing", desc: "Explore SEO, content strategy and social media marketing." },
+      { icon: "🌐", name: "Web Development", desc: "Start building websites with HTML, CSS and JavaScript." }
+    ];
+
+    const courseGrid = document.getElementById("courseGrid");
+    const courseSelect = document.getElementById("studentCourse");
+
+    courses.forEach(course => {
+      const card = document.createElement("article");
+      card.className = "course";
+      const icon = document.createElement("div");
+      icon.className = "course-icon";
+      icon.textContent = course.icon;
+      const title = document.createElement("h3");
+      title.textContent = course.name;
+      const desc = document.createElement("p");
+      desc.textContent = course.desc;
+      const button = document.createElement("button");
+      button.className = "btn btn-outline";
+      button.type = "button";
+      button.textContent = "Enquire now";
+      button.addEventListener("click", () => {
+        courseSelect.value = course.name;
+        document.getElementById("register").scrollIntoView({ behavior: "smooth" });
+      });
+      card.append(icon, title, desc, button);
+      courseGrid.appendChild(card);
+
+      const option = document.createElement("option");
+      option.value = course.name;
+      option.textContent = course.name;
+      courseSelect.appendChild(option);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // WhatsApp registration: user reviews and sends the message in WhatsApp.
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const data = new FormData(this);
+      const registration = {
+        name: String(data.get("name")).trim(),
+        phone: String(data.get("phone")).trim(),
+        email: String(data.get("email")).trim(),
+        course: String(data.get("course")).trim(),
+        message: String(data.get("message")).trim(),
+        date: new Date().toLocaleString()
+      };
+      if (!registration.name || !registration.phone || !registration.course) {
+        alert("Please fill in your name, phone number and course.");
+        return;
+      }
+      // Local demo storage only. Not a cloud database.
+      const records = JSON.parse(localStorage.getItem("radhaStudentEnquiries") || "[]");
+      records.push(registration);
+      localStorage.setItem("radhaStudentEnquiries", JSON.stringify(records));
+
+      const message = [
+        "Hello Digital Skills with Radha, I want to register.",
+        "Name: " + registration.name,
+        "Phone: " + registration.phone,
+        "Email: " + (registration.email || "Not provided"),
+        "Course: " + registration.course,
+        "Message: " + (registration.message || "None")
+      ].join("\n");
+      window.open("https://wa.me/918928529591?text=" + encodeURIComponent(message), "_blank");
+      this.reset();
+    });
+
+    // DEMO ONLY: this password is visible in the page source and is not secure.
+    document.getElementById("loginButton").addEventListener("click", () => {
+      const password = document.getElementById("adminPassword").value;
+      if (password === "Radha@123") {
+        document.getElementById("adminLogin").classList.add("hidden");
+        document.getElementById("adminArea").style.display = "block";
+        renderRegistrations();
+      } else {
+        document.getElementById("loginError").textContent = "Incorrect demo password. Please try again.";
+      }
+    });
+
+    function renderRegistrations() {
+      const rows = document.getElementById("registrationRows");
+      const records = JSON.parse(localStorage.getItem("radhaStudentEnquiries") || "[]");
+      rows.replaceChildren();
+      if (!records.length) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 5;
+        td.textContent = "No registrations stored in this browser yet.";
+        tr.appendChild(td);
+        rows.appendChild(tr);
+        return;
+      }
+      records.forEach(record => {
+        const tr = document.createElement("tr");
+        [record.name, record.phone, record.email, record.course, record.date].forEach(value => {
+          const td = document.createElement("td");
+          td.textContent = value || "—";
+          tr.appendChild(td);
+        });
+        rows.appendChild(tr);
+      });
+    }
+
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      document.getElementById("adminArea").style.display = "none";
+      document.getElementById("adminLogin").classList.remove("hidden");
+      document.getElementById("adminPassword").value = "";
+    });
+
+    document.getElementById("clearButton").addEventListener("click", () => {
+      if (confirm("Delete all demo registrations stored in this browser?")) {
+        localStorage.removeItem("radhaStudentEnquiries");
+        renderRegistrations();
+      }
+    });
+
+    document.getElementById("exportButton").addEventListener("click", () => {
+      const records = JSON.parse(localStorage.getItem("radhaStudentEnquiries") || "[]");
+      if (!records.length) { alert("There are no registrations to export."); return; }
+      const headers = ["Name", "Phone", "Email", "Course", "Message", "Date"];
+      const csvCell = value => '"' + String(value ?? "").replace(/"/g, '""') + '"';
+      const csv = [headers, ...records.map(r => [r.name, r.phone, r.email, r.course, r.message, r.date])]
+        .map(row => row.map(csvCell).join(",")).join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url; link.download = "radha-student-enquiries.csv"; link.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
